@@ -1,0 +1,22 @@
+Customize values based on variables to create reusable code
+
+- be able to customize aspects of TF configurations and modules
+
+Conventions
+
+ - Declarded inside variables.tf and used via var.<NAME>
+ - Can set type and provide description, set default value, set sensitive and provide validation rules
+
+ Some Types
+
+   * Lowest precedence
+
+   - Default values
+   - Environment variables
+   - terraform.tfvars file
+   - terraform.tfvars.json
+   - *.auto.tfvars or *.auto.tfvars.json
+   - Commandline -var and --var-file
+   
+   * Highest precedence
+
