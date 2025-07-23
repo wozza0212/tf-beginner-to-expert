@@ -4,8 +4,9 @@ variable "instance_type" {
   default     = "t2.micro"
 
   validation {
-    condition     = var.instance_type == "t2.micro" || var.instance_type == "t3.micro"
+    #condition     = var.instance_type == "t2.micro" || var.instance_type == "t3.micro"
     error_message = "Only supports t2.micro and t3.micro"
+    condition = contains(["t2.micro", "t3.micro"], var.instance_type)
   }
 }
 
