@@ -19,7 +19,9 @@ resource "aws_instance" "web" {
   ami           = data.aws_ami.example.id
   instance_type = var.instance_type
 
-  tags = var.default_tags
+  tags = merge(var.default_tags, {
+    additional_tags = true
+  })
 
   root_block_device {
     delete_on_termination = true
