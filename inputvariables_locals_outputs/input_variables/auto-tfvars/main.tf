@@ -31,3 +31,15 @@ resource "aws_instance" "web" {
   }
 
 }
+
+output "bucket_id" {
+  value = aws_s3_bucket.locals_bucket.id
+}
+
+resource "aws_s3_bucket" "locals_bucket" {
+  bucket = "my-tf-test-locals-bucket"
+
+  tags = merge(local.local_tags, {
+    additional_tags = true,
+  })
+}
