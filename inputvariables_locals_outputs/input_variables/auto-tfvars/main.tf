@@ -18,10 +18,10 @@ output "latest_ami_id" {
 
 resource "aws_instance" "web" {
   ami           = data.aws_ami.example.id
-  instance_type = var.instance_type
+  instance_type = local.instance_type
 
-  tags = merge(var.default_tags, {
-    additional_tags = true
+  tags = merge(local.local_tags, {
+    additional_tags = true,
   })
 
   root_block_device {
