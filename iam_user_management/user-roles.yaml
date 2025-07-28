@@ -1,0 +1,4 @@
+users: 
+ - username: john
+  roles: [readonly, developer]
+- username: jane
